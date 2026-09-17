@@ -1,4 +1,5 @@
 node_modules/
 output/
 react/dist/
+extension/dist/
 .DS_Store
