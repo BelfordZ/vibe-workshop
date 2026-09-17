@@ -4,11 +4,11 @@ Keep this file open beside [presentation.md](presentation.md). The numbered sect
 
 ## 1. Vibe coding for dealership workflows
 
-**Opening block: 0:00–0:20, slides 1–6.** Spend roughly 10 minutes setting expectations and 10 minutes discussing workflows from the room.
+**Opening block: 0:00–0:10, slides 1–6.** Keep the introduction short so everyone has time to discuss their three prepared ideas in the next block.
 
 Say: “Today we're going to take one task you repeat and get a small automation working. You already know the business process. We'll practice explaining that process clearly enough for a coding agent to help implement it.”
 
-Ask: “Who has copied information between a spreadsheet and another system this week?” Take a show of hands. Start the clock and connect the goal to the work people recognize.
+Say: “You brought three ideas. We'll hear them from everyone, practice framing them, and choose one to build. The skill we're practicing is turning an idea into clear steps and checking a result.” Start the clock.
 
 ## 2. Today's finish line
 
@@ -32,15 +32,23 @@ Emphasize asking to see an actual output. Code that runs can still implement the
 
 ## 5. A workflow from the room
 
-Ask: “Who can describe one repetitive task from this week, starting with what caused you to do it?” Hear one or two examples.
+Say: “Keep your three prepared ideas in front of you. As we go through this pattern, think about how each idea fits it. Everyone will get a turn in the discussion.”
 
-Follow up with: “What did you open? Which fields did you look at? How did you decide what to do? What did you produce?” Write down the input, rule, and output in their words.
+Introduce the questions they will answer: “What starts the work? What information do you use? How do you decide what to do? What should come out?”
 
-Keep this conversational. If someone starts designing a large app, say: “Let's stay with one instance of the work. What happened the last time you did it?”
+Save individual pitches for the next block. Emphasize that they can explain the work in ordinary language without choosing technology.
 
 ## 6. The pattern behind an automation
 
-Say: “The examples we just heard have a similar shape: something starts the work, we get information, apply a rule, and produce a result. Those are the pieces we'll build separately.”
+Say: “A competitor posts a car. We check whether we have something similar, compare the price and equipment, and flag a large price difference for review. That gives us a concrete trigger, input, rule, and output.”
+
+Walk through the four steps on screen. Explain that detecting a listing could happen during a scheduled website check; we don't have to receive an instant notification from the competitor.
+
+Ask: “What counts as similar: the same model and trim, within a year, within a mileage range? Which options would make the comparison misleading?” Those are business rules the participant needs to define. The report should expose differences for review rather than assume two cars are equivalent.
+
+For the percentage rule, say: “Suppose theirs is $30,000 and ours is $33,000. Ours is 10% higher, using their price as the baseline. With a 5% threshold, we'd flag it.” The calculation is `(our price − competitor price) / competitor price × 100`. Here, X is the participant's chosen threshold and “more than” excludes an exact match to that threshold. Missing or zero competitor prices need review rather than a percentage calculation.
+
+Emphasize that the output is a comparison report for a person to review, with no automatic price changes.
 
 Clarify: “Using AI to help write a program doesn't mean the finished program needs AI on every run. Comparing two prices or checking a date can use ordinary code.”
 
@@ -48,15 +56,17 @@ Transition: “Now let's choose a workflow with a first version we can finish to
 
 ## 7. Activity: describe the work you do today
 
-**Selection block: 0:20–0:50, slides 7–9.** Allow 5 minutes to review candidates, 10 for paired pitches, 10 to choose, and 5 for the checkpoint.
+**Idea discussion: 0:10–0:50, slides 7–9.** For eight attendees, allow four minutes per person, then eight minutes for everyone to choose and rewrite their selected idea. Confirm headcount beforehand; see facilitator.md for larger groups.
 
-Say: “Describe what you do today using the sentence on screen. Include how often it happens and what input you can actually access.”
+Say: “Give us a quick description of each of your three ideas. We'll discuss them and help you pick a first result you can get today.” Allow about 90 seconds for all three, two minutes of questions and reframing, and 30 seconds to repeat the strongest candidate clearly.
 
-Have participants work in pairs and capture their candidates in the project worksheet. Walk around asking for concrete files and output examples.
+Give every attendee a turn. Ask one useful clarifying question about each idea, then focus deeper discussion on the strongest candidate. Capture a short framing sentence for that candidate. Avoid turning the discussion into advice about libraries or UI design.
+
+When someone says “I want a competitor monitoring app,” respond: “What would it tell you that you can act on?” Help them reach: “When we find a new competitor listing, compare it with similar stock and produce a report of our vehicles priced more than X% higher.” Ask the participant to confirm or correct the wording.
 
 ## 8. A project that fits today
 
-Say: “Choose one input, one transformation, and one output. A report that saves you 15 minutes each morning is a useful result.”
+Say: “Choose one clear workflow with one useful output. Keep only the inputs needed for it. A comparison needs both sides, but it can start with two small files and one matched pair.”
 
 For an ambitious proposal, ask: “What is the first useful report or preview inside that idea?” For an autonomous follow-up system, the first result might be a list of leads requiring review.
 
@@ -68,7 +78,7 @@ Ask each person to name the input and describe one correct output row.
 
 Say: “If we can't access the source today, let's use an approved export or make a few fictional records with the same fields. Write down what still needs access.”
 
-By minute 50, help anyone still choosing settle on a small task. Data availability matters more than an impressive estimated saving.
+By minute 50, have each participant write and read back their selected framing sentence and first useful result. Park the other two ideas. Check that everyone received discussion time and can explain what they are going to build.
 
 ## 10. A workflow becomes a sequence
 
@@ -76,11 +86,13 @@ By minute 50, help anyone still choosing settle on a small task. Data availabili
 
 Say: “Let's take one of your workflows and break it into steps where we can see whether each one worked.”
 
-Use the pricing sequence as a reference if helpful. Ask about matching identifiers, currency, sold vehicles, duplicate VINs, and missing listings. Each step should have a visible result, such as a row count or a matched record.
+Carry the competitor example through the steps on screen: one listing, one inventory match, one comparison, one threshold decision, one saved report. Similar vehicles are not matched by identical VINs; the participant must define acceptable model, trim, year, and mileage differences. Start with an accessible file or supplied listing so automatic discovery doesn't block the comparison.
+
+Ask everyone to apply the same method to their chosen idea: “What are your steps? What could you show me after each one?” Their AI interview should turn those answers into the implementation plan.
 
 ## 11. Uncertainty is part of the project
 
-Say: “It's fine not to know whether the website exposes a VIN. That becomes a small investigation before we build everything that depends on it.”
+Say: “If we don't know what ‘similar’ means, the agent will have to guess. Let's resolve that rule using one pair that should match and one that shouldn't.”
 
 Ask: “What's the biggest unknown in your project? What's the smallest action that would answer it?”
 
@@ -88,17 +100,17 @@ Separate business decisions from technical questions. The participant decides wh
 
 ## 12. PROJECT.md is the shared specification
 
-Say: “This file is where you and the agent keep the agreement about what you're building. Include the rules and one example that should pass, one that should be excluded, and a boundary case.”
+Say: “Describe your workflow, give the AI the short template, and let it ask about the details it needs. Your job is to answer and correct its understanding.”
 
-Have participants copy the template into their project as `PROJECT.md`. Confirm they saved a file rather than only writing a chat message.
+Have participants paste or attach the template with the interview prompt from prompts.md. The AI asks one or two questions at a time, then drafts the document. Participants review and confirm it before saving PROJECT.md. Confirm they have a saved file before building.
 
 Ask: “Does exactly 48 hours count?” Use their answer to show how a small wording choice changes the result.
 
 ## 13. A useful first prompt
 
-Say: “Give the agent the goal, the input, the expected result, and a small first task. Then ask it to run what it wrote and show you the output.”
+Say: “Start with what you know about the work. The AI can recommend technical choices, but it needs you to explain the business rules. If it starts coding immediately, remind it to finish the interview first.”
 
-Point to prompts.md for copyable wording. Encourage short follow-ups: “That row should be excluded because…” or “Show me what happens with an empty file.”
+Point to prompts.md for copyable wording. Encourage corrections such as “That row should be excluded because…” Once participants confirm the document, use the separate first-build prompt.
 
 Transition: “You now have enough of a specification to build the first working piece.”
 
@@ -106,7 +118,7 @@ Transition: “You now have enough of a specification to build the first working
 
 **1:15–2:00.** Give 5 minutes of direction, 30 minutes to build, and 10 minutes to check results.
 
-Say: “Your target is one correct result from a small input, then a saved report. At the end, show the command, the input, and one row you've checked yourself.”
+Say: “Ask for the first step, run it, inspect its output, and correct it before asking for the next. Your target is one correct result from a small input, then a saved report. At the end, show the command, the input, and one row you've checked yourself.”
 
 Check in after 15 minutes. Ask “What works now?” and “What's the next observable step?” If someone is spending time on appearance, return to their acceptance example. Ask everyone to save working progress before the break.
 
@@ -148,7 +160,7 @@ If access is still unavailable, document that limitation and continue testing th
 
 Say: “Now we're going to give the program something awkward on purpose. What happens when a field is missing, the file is empty, or the same record appears twice?”
 
-Ask participants to write the expected behavior before running the case. Use the checklist in PROJECT.md. The target is one handled failure with a useful explanation, alongside a successful rerun of the normal case.
+Ask participants to write the expected behavior before running the case. Start with the “Done when” examples in PROJECT.md. The target is one handled failure with a useful explanation, alongside a successful rerun of the normal case.
 
 ## 20. Results people can trust
 

@@ -1,6 +1,6 @@
 # Vibe coding for dealership workflows
 
-One small automation that runs.
+Bring three ideas. Leave with one small automation that runs.
 
 4½ hours of choosing, building, testing, and sharing.
 
@@ -20,8 +20,8 @@ One small automation that runs.
 
 | Elapsed time | Activity |
 | --- | --- |
-| 0:00–0:20 | Introduction and workflow discussion |
-| 0:20–0:50 | Choose an automation |
+| 0:00–0:10 | How to frame an automation |
+| 0:10–0:50 | Discuss everyone's three ideas and choose one |
 | 0:50–1:15 | Break it into observable steps |
 | 1:15–2:00 | Build with sample data |
 | 2:00–2:10 | Break |
@@ -44,39 +44,40 @@ Your most useful question: “Show me the output for this example.”
 
 ## A workflow from the room
 
-Think of a task you repeated this week.
+You already have three automation ideas. Keep them in front of you.
 
-What started it? What information did you need? What decision did you make? What did you produce?
+For each, explain: what starts the work, what information you use, what decision you make, and what result you need.
+
+We will discuss each person's ideas before choosing a first build.
 
 ---
 
 ## The pattern behind an automation
 
-1. Something triggers the work.
-2. The script gathers input.
-3. Explicit rules transform the data.
-4. The script produces a result someone can check.
-
-Example: a morning inventory export becomes an aging-stock report.
+1. **Trigger:** We detect a new competitor vehicle listing.
+2. **Gather data:** Read its price, year, model, trim, mileage, and options. Find similar vehicles in our inventory.
+3. **Apply rules:** Compare prices and options. Flag our matching vehicles priced more than X% above the competitor's price.
+4. **Produce output:** Create a review report with both vehicles, the price gap, and differences in mileage or options.
 
 ---
 
 ## Activity: describe the work you do today
 
-“When ___ happens, I open ___, copy ___, compare ___, and produce ___.”
+**0:10–0:50 · Everyone gets a turn**
 
-For each candidate, identify:
+Share all three ideas briefly, then discuss which has the clearest first result.
 
-- How often it happens and minutes spent
-- The actual input you can access today
-- What a correct output looks like
-- Who checks or uses that output
+Frame each as:
+
+“When ___ happens, use ___ to check ___, then produce ___ for ___ to review.”
+
+The group asks: Can you access the input? What is one correct result? What can we leave out today?
 
 ---
 
 ## A project that fits today
 
-One input system, one transformation, one output.
+One clear workflow and one checkable output. Use the smallest set of inputs needed.
 
 | Candidate | First useful version |
 | --- | --- |
@@ -95,40 +96,44 @@ One input system, one transformation, one output.
 - Can the first version run in about two hours?
 - Can you test it without changing customer or dealership records?
 
+Before building: say your chosen workflow in one sentence and name its first useful result. Keep the other two ideas for later.
+
 If access is blocked, use an approved export or create a few fictional records matching your input format.
 
 ---
 
 ## A workflow becomes a sequence
 
-Pricing reconciliation:
+Competitor price comparison, built one observable step at a time:
 
-1. Read the inventory export.
-2. Read advertised prices from an accessible source.
-3. Match records by VIN.
-4. Report price differences and missing matches.
-5. Save a report for review.
+1. Read one listing. Show its price and vehicle details.
+2. Read our inventory. Show one match using agreed similarity rules.
+3. Compare the two. Show the price gap and option differences.
+4. Apply X%. Show whether this pair should be flagged.
+5. Save a review report. Check its row against the source.
+
+Start with a supplied listing or export. Add automatic detection after the comparison works.
 
 ---
 
 ## Uncertainty is part of the project
 
-“We don't yet know whether the website exposes a VIN.”
+“We haven't defined what counts as a similar vehicle.”
 
 Make the next task a small investigation:
 
-> Read one listing and print its VIN and advertised price. Explain any missing fields. Stop after this step.
+> Ask me which model, year, trim, and mileage differences are acceptable. Then show one matching pair and one pair we should exclude before implementing matching.
 
 ---
 
 ## PROJECT.md is the shared specification
 
-Use [the project worksheet](PROJECT.template.md) to record:
+Give the AI your workflow and [the short project template](PROJECT.template.md).
 
-- Goal, input, and output
-- Exact rules and worked examples
-- Constraints and excluded features
-- Run command and definition of done
+- Answer its questions one or two at a time.
+- Clarify the input, rules, and expected result.
+- Review the draft and correct any assumptions.
+- Save the agreed version as `PROJECT.md` before building.
 
 > Read PROJECT.md before making changes. Keep it updated when we agree to change a requirement.
 
@@ -136,19 +141,21 @@ Use [the project worksheet](PROJECT.template.md) to record:
 
 ## A useful first prompt
 
-> I want to automate ___. Today I do these steps: ___.
+> Here is my workflow: ___. Use the project template to interview me before writing code.
 >
-> My input is ___ and the expected output is ___.
+> Ask one or two questions at a time until the first version is clear enough to build. Then draft PROJECT.md for me to review.
 >
-> Read PROJECT.md. Implement the smallest working version using sample data. Run it and show me the result.
+> Once I confirm it, save the file and wait for me to ask you to build.
 
-Follow with: “What failed?” “Show the evidence.” “Now add this one change.”
+The complete copy-paste prompt is in [prompts.md](prompts.md).
 
 ---
 
 ## Build sprint: first useful output
 
 **1:15–2:00 · 45 minutes**
+
+Repeat: request one step, run it, inspect the output, correct it, then add the next step.
 
 First print one correct result. Then save the report.
 

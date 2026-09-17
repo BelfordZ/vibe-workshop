@@ -12,9 +12,9 @@ This is Markdown source, not an exported slide deck. Open presentation.md in a p
 
 | Time | Facilitation | Evidence before moving on |
 | --- | --- | --- |
-| 0:00–0:20 | Explain the goal; discuss workflows from the room | Participants identify input, rule, output |
-| 0:20–0:50 | 5 min individual review, 10 min paired pitches, 10 min selection, 5 min checkpoint | One scoped workflow per person |
-| 0:50–1:15 | 10 min live decomposition, 10 min PROJECT.md, 5 min peer check | Observable steps and acceptance examples |
+| 0:00–0:10 | Teach framing using the competitor example | Participants recognize trigger, input, rule, output |
+| 0:10–0:50 | Discuss each person's three ideas, then choose and reframe one | Everyone has a turn and leaves with a framing sentence |
+| 0:50–1:15 | 10 min live decomposition, 10 min AI interview, 5 min draft review | Agreed PROJECT.md with steps and acceptance examples |
 | 1:15–2:00 | 5 min launch, 30 min build, 10 min show output | Working sample run |
 | 2:00–2:10 | Break and unblock planning | Known next obstacle |
 | 2:10–3:00 | 5 min source choices, 35 min integration, 10 min check | Real input or documented access fallback |
@@ -24,11 +24,21 @@ This is Markdown source, not an exported slide deck. Open presentation.md in a p
 
 For six participants, allow three minutes each plus two minutes of transitions. For a larger group, use parallel demo groups or nominate representatives. Protect the final 20 minutes by cutting optional extensions first.
 
-## Opening discussion
+## Three-idea discussion
 
-Spend the first 10 minutes on the workshop goal and the participant's role in directing and checking the coding agent. Use the next 10 minutes to hear one or two workflows from the room. Write down each trigger, input, rule, and output. Keep detailed project selection for the next block.
+Attendees arrive with three ideas. Use the first 10 minutes to teach the framing pattern. Reserve the full next 40 minutes for discussing their ideas and selecting a first build.
+
+For eight participants, allocate four minutes each: 90 seconds to share all three ideas, two minutes for questions and reframing, and 30 seconds to confirm the strongest candidate. Ask a clarifying question about each idea before narrowing the discussion. Use the remaining eight minutes for participants to write their selected workflow and first useful result. With fewer people, use extra time to refine examples.
+
+Confirm headcount in advance. For more than eight attendees, arrange facilitated parallel groups of at most eight so everyone still discusses all three ideas. If only one facilitator is available, extend this block by four minutes per extra attendee and reduce the later integration block by the same amount; for a substantially larger group, arrange another facilitator or a longer session. Do not silently skip someone's turn.
+
+Capture the selected idea using: “When ___ happens, use ___ to check ___, then produce ___ for ___ to review.” Ask about accessible input, one correct result, and what can be deferred. Avoid technology selection during pitches. Before moving on, each attendee should be able to state their workflow and first result clearly.
+
+In the decomposition block, carry the competitor example through one listing, one inventory match, a price comparison, a threshold decision, and a saved report. Each participant then gives the AI their own idea and template. During building, reinforce the loop: request one step, run it, inspect the output, correct it, then add the next step.
 
 ## Starter selection and limitations
+
+Participants describe their workflow and give the AI PROJECT.template.md with the interview prompt from prompts.md. The AI asks one or two questions at a time and fills in the template. Participants confirm the draft before saving PROJECT.md and requesting implementation. Help resolve questions about behavior or access; defer optional improvements rather than extending the interview indefinitely.
 
 For code starters, follow each folder's README and install only what the participant needs.
 
@@ -45,7 +55,7 @@ Existing starters have reported dependency audit findings. Review those before w
 - Installation blocked: pair on a prepared machine and resolve installation outside the build sprint.
 - Authentication blocked: after 10 minutes, move to an approved export or fictional fixture.
 - Rules unclear: write one expected output row and one counterexample together.
-- Too much scope: return to the single input, transformation, and output in PROJECT.md.
+- Too much scope: return to the chosen workflow and first useful output in PROJECT.md.
 - Scraper unreliable: inspect one record and verify actual fields before exporting many rows.
 - Finished early: test a boundary case, improve the error message, or have a peer run the instructions.
 
