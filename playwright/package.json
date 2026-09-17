@@ -1,0 +1,12 @@
+{
+  "name": "vibe-coding-workshop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Barebones examples for a vibe coding workshop.",
+  "scripts": {
+    "scrape": "node src/scrape-wikipedia.js"
+  },
+  "dependencies": {
+    "playwright": "^1.55.0"
+  }
+}

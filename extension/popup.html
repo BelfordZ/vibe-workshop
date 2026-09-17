@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vibe Scraper</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Workshop starter</p>
+          <h1>Vibe Scraper</h1>
+        </div>
+        <span class="status-dot" title="Ready"></span>
+      </header>
+
+      <section class="card">
+        <label for="url">Target URL</label>
+        <input id="url" type="url" placeholder="https://www.wikipedia.org/" />
+        <button id="open-url" class="button secondary" type="button">Open in new tab</button>
+      </section>
+
+      <section class="card">
+        <div class="section-heading">
+          <div>
+            <label for="limit">Links from active tab</label>
+            <p class="hint">Read a few links from the page you are viewing.</p>
+          </div>
+          <input id="limit" class="limit-input" type="number" min="1" max="50" value="10" />
+        </div>
+        <button id="scrape-page" class="button primary" type="button">Scrape active page</button>
+        <p id="message" class="message" role="status">Ready to scrape.</p>
+        <ul id="results" class="results"></ul>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Vibe Scraper Starter",
+  "version": "1.0.0",
+  "description": "A tiny Chrome extension starter for experimenting with browser scraping.",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab", "scripting", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
