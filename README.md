@@ -1,5 +1,7 @@
 # Vibe Coding Workshop
 
+Start with the [workshop presentation and materials](./workshop/README.md) for the 4½-hour hands-on session.
+
 Small, self-contained browser automation examples:
 
 - [`playwright/`](./playwright) — a Playwright scraper that writes links to CSV.

@@ -1,0 +1,189 @@
+# Presenter notes
+
+Keep this file open beside [presentation.md](presentation.md). The numbered sections match the slides in order. Suggested wording is a starting point, not a script to memorize. Use [facilitator.md](facilitator.md) for the detailed run of show and troubleshooting.
+
+## 1. Vibe coding for dealership workflows
+
+**Opening block: 0:00–0:20, slides 1–6.** Spend roughly 10 minutes setting expectations and 10 minutes discussing workflows from the room.
+
+Say: “Today we're going to take one task you repeat and get a small automation working. You already know the business process. We'll practice explaining that process clearly enough for a coding agent to help implement it.”
+
+Ask: “Who has copied information between a spreadsheet and another system this week?” Take a show of hands. Start the clock and connect the goal to the work people recognize.
+
+## 2. Today's finish line
+
+Say: “By the end, you should be able to run a command, show a useful result, and explain why it's correct. We'll also write down the rules so you can return to this next week.”
+
+Clarify that an approved export counts as a real input. A live integration is optional. If someone uses fictional records because access is unavailable, have them record the remaining access step.
+
+## 3. Our 4½ hours
+
+Say: “Most of the session is yours to build. We'll make something work with a small input first, connect the real data, then deliberately try to break it. The last 20 minutes are for sharing what you made.”
+
+Point out the break and build periods. Avoid reading every row aloud. Keep the schedule available during independent work.
+
+## 4. Your role in the build
+
+Say: “The agent can write code, but it doesn't know the exceptions you handle every day unless you explain them. Your job is to supply the rules and check the result.”
+
+Use an example: “If you say ‘old inventory,’ does that mean more than 60 days, or 60 days and over? Should sold vehicles appear?”
+
+Emphasize asking to see an actual output. Code that runs can still implement the wrong rule.
+
+## 5. A workflow from the room
+
+Ask: “Who can describe one repetitive task from this week, starting with what caused you to do it?” Hear one or two examples.
+
+Follow up with: “What did you open? Which fields did you look at? How did you decide what to do? What did you produce?” Write down the input, rule, and output in their words.
+
+Keep this conversational. If someone starts designing a large app, say: “Let's stay with one instance of the work. What happened the last time you did it?”
+
+## 6. The pattern behind an automation
+
+Say: “The examples we just heard have a similar shape: something starts the work, we get information, apply a rule, and produce a result. Those are the pieces we'll build separately.”
+
+Clarify: “Using AI to help write a program doesn't mean the finished program needs AI on every run. Comparing two prices or checking a date can use ordinary code.”
+
+Transition: “Now let's choose a workflow with a first version we can finish today.”
+
+## 7. Activity: describe the work you do today
+
+**Selection block: 0:20–0:50, slides 7–9.** Allow 5 minutes to review candidates, 10 for paired pitches, 10 to choose, and 5 for the checkpoint.
+
+Say: “Describe what you do today using the sentence on screen. Include how often it happens and what input you can actually access.”
+
+Have participants work in pairs and capture their candidates in the project worksheet. Walk around asking for concrete files and output examples.
+
+## 8. A project that fits today
+
+Say: “Choose one input, one transformation, and one output. A report that saves you 15 minutes each morning is a useful result.”
+
+For an ambitious proposal, ask: “What is the first useful report or preview inside that idea?” For an autonomous follow-up system, the first result might be a list of leads requiring review.
+
+Help them defer extra integrations and customer contact until a later iteration.
+
+## 9. Selection checkpoint
+
+Ask each person to name the input and describe one correct output row.
+
+Say: “If we can't access the source today, let's use an approved export or make a few fictional records with the same fields. Write down what still needs access.”
+
+By minute 50, help anyone still choosing settle on a small task. Data availability matters more than an impressive estimated saving.
+
+## 10. A workflow becomes a sequence
+
+**Decomposition block: 0:50–1:15, slides 10–13.** Use roughly 10 minutes for a participant example, 10 for writing the specification, and 5 for a peer check.
+
+Say: “Let's take one of your workflows and break it into steps where we can see whether each one worked.”
+
+Use the pricing sequence as a reference if helpful. Ask about matching identifiers, currency, sold vehicles, duplicate VINs, and missing listings. Each step should have a visible result, such as a row count or a matched record.
+
+## 11. Uncertainty is part of the project
+
+Say: “It's fine not to know whether the website exposes a VIN. That becomes a small investigation before we build everything that depends on it.”
+
+Ask: “What's the biggest unknown in your project? What's the smallest action that would answer it?”
+
+Separate business decisions from technical questions. The participant decides which price counts; inspecting a listing establishes whether that price can be extracted.
+
+## 12. PROJECT.md is the shared specification
+
+Say: “This file is where you and the agent keep the agreement about what you're building. Include the rules and one example that should pass, one that should be excluded, and a boundary case.”
+
+Have participants copy the template into their project as `PROJECT.md`. Confirm they saved a file rather than only writing a chat message.
+
+Ask: “Does exactly 48 hours count?” Use their answer to show how a small wording choice changes the result.
+
+## 13. A useful first prompt
+
+Say: “Give the agent the goal, the input, the expected result, and a small first task. Then ask it to run what it wrote and show you the output.”
+
+Point to prompts.md for copyable wording. Encourage short follow-ups: “That row should be excluded because…” or “Show me what happens with an empty file.”
+
+Transition: “You now have enough of a specification to build the first working piece.”
+
+## 14. Build sprint: first useful output
+
+**1:15–2:00.** Give 5 minutes of direction, 30 minutes to build, and 10 minutes to check results.
+
+Say: “Your target is one correct result from a small input, then a saved report. At the end, show the command, the input, and one row you've checked yourself.”
+
+Check in after 15 minutes. Ask “What works now?” and “What's the next observable step?” If someone is spending time on appearance, return to their acceptance example. Ask everyone to save working progress before the break.
+
+## 15. Break
+
+**2:00–2:10.** Announce the exact return time.
+
+Say: “Before you step away, leave yourself one sentence: what's working and what's blocking you next.”
+
+Use those notes to identify people who need help or an input fallback when they return.
+
+## 16. Connection choices
+
+**Integration block: 2:10–3:00, slides 16–18.** Allow 5 minutes for direction, 35 minutes to connect inputs, and 10 minutes to check results.
+
+Say: “We want the simplest available way to get the data. If an approved API is ready, use it. If the system gives you an export, that may be all you need.”
+
+Explain that browser interaction can depend on changing page layouts and login sessions. It still requires authorized access. After 10 minutes on an access problem, help the participant switch to an export or fictional input.
+
+## 17. Examples in this repository
+
+Say: “These folders are starting points for different kinds of work. Pick the one that matches your next step and follow its README.”
+
+Mention that each project has its own dependencies. Excel needs an input workbook. Outlook needs authorized mailbox access and verification against the current page. Its existing test covers CSV formatting, not live inbox extraction.
+
+The React app or extension may help when an interface is part of the workflow. A file output is sufficient for today's goal. Avoid touring every code file.
+
+## 18. Real-input checkpoint
+
+Say: “Compare the result with the original source. Pick a few included records and at least one record that should have been left out.”
+
+Remind participants that this is a public repository and its React app publishes through Pages on pushes to main. Keep customer information, generated private reports, and login profiles out of commits.
+
+If access is still unavailable, document that limitation and continue testing the transformation with fictional records.
+
+## 19. Reliability lab
+
+**Reliability block: 3:00–3:40, slides 19–20.** Allow 5 minutes of direction, 25 minutes to test and fix, and 10 minutes to rerun.
+
+Say: “Now we're going to give the program something awkward on purpose. What happens when a field is missing, the file is empty, or the same record appears twice?”
+
+Ask participants to write the expected behavior before running the case. Use the checklist in PROJECT.md. The target is one handled failure with a useful explanation, alongside a successful rerun of the normal case.
+
+## 20. Results people can trust
+
+Say: “A useful error tells you which row or field needs attention. A useful run tells you what it read and where it saved the result.”
+
+Ask: “If you run this twice, what happens? Do you replace a report, append duplicate rows, or send two messages?” That question introduces idempotency without needing the terminology.
+
+Explain that retries are suitable only when repeating the operation is safe. For changes to external systems, a draft or preview gives someone a chance to review the action first.
+
+## 21. A trigger makes the script an automation
+
+**Triggers and handoff: 3:40–4:10, slides 21–22.** Spend 10 minutes on triggers, 15 on handoff, and 5 preparing participant sharing.
+
+Say: “So far you've started the script yourself. A schedule or arriving file can start it later, but we need to decide where it runs and who finds out if it fails.”
+
+Ask: “Which machine will be available? What account runs it? What happens if yesterday's run is still going?” Mention Windows Task Scheduler as a possible next step for local scripts. A sleeping laptop cannot guarantee a timely run.
+
+If the manual run is still unreliable, record the trigger plan and focus on finishing the working version.
+
+## 22. Handoff checkpoint
+
+Say: “Swap with a partner. Can they find the command and understand the expected output from your README without you narrating every step?”
+
+Have participants record installation, working directory, output location, known limitations, and the owner. Use the final five minutes to choose what they will show and confirm no private data will appear on screen.
+
+## 23. Demo time
+
+**4:10–4:30.** For eight participants, allow two minutes each and four minutes total for transitions. For six, allow three minutes each plus two minutes of transitions.
+
+Say: “Tell us what you did manually, show the result, explain one check you used, and name the next improvement.”
+
+Keep the focus on participants' own projects. If someone estimates savings, ask them to include the time they still spend reviewing the output. Label the number as an estimate.
+
+## 24. What you take away
+
+Say: “You now have a process written down precisely enough to run and test. Keep the working version, the rules, and the next improvement together so you can continue from here.”
+
+Ask each participant to record who owns the next run and when it will happen. Acknowledge any remaining access or reliability work explicitly. Close by inviting them to use the same process on their next small workflow.
