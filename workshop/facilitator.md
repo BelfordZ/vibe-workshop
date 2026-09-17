@@ -4,7 +4,7 @@
 
 The agenda totals 270 minutes including the break. Aim for a working report with a real approved input, one checked failure, and a documented next step. If access prevents a real-input run, accept a working synthetic-data prototype with that limitation clearly recorded.
 
-Send prework.md several days ahead. Ask participants to confirm the setup checks pass and bring an approved input sample. Arrange an IT contact or a preapproved machine for installation problems.
+Send prework.md several days ahead. Inventory existing approved tools and extension-loading policies, and ask participants to bring an approved input sample. Machines are locked down: plan around what is available, without requiring new installations, Microsoft 365 app registration, consent grants, or organizational permissions.
 
 This is Markdown source, not an exported slide deck. Open presentation.md in a preview. Horizontal rules separate slides. Keep [presenter-notes.md](presenter-notes.md) alongside it for slide-by-slide speaking cues. No rendering service is required.
 
@@ -14,10 +14,10 @@ This is Markdown source, not an exported slide deck. Open presentation.md in a p
 | --- | --- | --- |
 | 0:00–0:10 | Teach framing using the competitor example | Participants recognize trigger, input, rule, output |
 | 0:10–0:50 | Discuss each person's three ideas, then choose and reframe one | Everyone has a turn and leaves with a framing sentence |
-| 0:50–1:15 | 10 min live decomposition, 10 min AI interview, 5 min draft review | Agreed PROJECT.md with steps and acceptance examples |
-| 1:15–2:00 | 5 min launch, 30 min build, 10 min show output | Working sample run |
-| 2:00–2:10 | Break and unblock planning | Known next obstacle |
-| 2:10–3:00 | 5 min source choices, 35 min integration, 10 min check | Real input or documented access fallback |
+| 0:50–1:30 | 10 min decomposition, 20 min AI interview, 10 min final plan reviews | Individual PROJECT.md reviewed with facilitator |
+| 1:30–2:15 | 5 min launch, 30 min incremental build, 10 min capture results | Checked milestones with evidence |
+| 2:15–2:25 | Break and unblock planning | Known next obstacle |
+| 2:25–3:00 | 5 min source choices, 20 min integration, 10 min check | Real input or documented access fallback |
 | 3:00–3:40 | 5 min explain failures, 25 min test/fix, 10 min rerun | One failure handled and output checked |
 | 3:40–4:10 | 10 min triggers, 15 min handoff, 5 min rehearsal | Run instructions, owner, trigger plan |
 | 4:10–4:30 | Eight 2-minute demos plus 4 min transitions | Visible results and next steps |
@@ -38,9 +38,21 @@ In the decomposition block, carry the competitor example through one listing, on
 
 ## Starter selection and limitations
 
+Each participant chooses a distinct workflow. The facilitator circulates rather than leading everyone through a shared build. Start reviewing plans during the AI interview period and finish those reviews before participants code. Check the scope, input access, acceptance example, and milestone sizes.
+
+At every milestone, the agent runs checks, presents evidence, and stops. The participant verifies the output and records working / blocked / needs review in PROJECT.md before explicitly requesting the next milestone. During circulation, ask what worked, how they checked it, and the next smallest step. Routine check-ins do not require everyone to wait in a facilitator queue; blockers and scope changes do require facilitator review. Shared agenda blocks are progress checkpoints, not permission to skip unfinished steps.
+
 Participants describe their workflow and give the AI PROJECT.template.md with the interview prompt from prompts.md. The AI asks one or two questions at a time and fills in the template. Participants confirm the draft before saving PROJECT.md and requesting implementation. Help resolve questions about behavior or access; defer optional improvements rather than extending the interview indefinitely.
 
-For code starters, follow each folder's README and install only what the participant needs.
+Before selecting a starter, verify an existing permitted way to run or build it. General installation commands in the repository READMEs do not override workshop constraints. If extensions are permitted but local building is unavailable, establish an approved existing build-and-delivery path before choosing that project. Otherwise use an approved export or fictional-data workflow in an available environment.
+
+Prefer Chrome extensions for browser work involving production edits. Playwright is an alternative only when its runtime/browser are already available, using a dedicated local profile with manual participant login. For production edits through any other pattern, document the reason and review it with the participant. Neither approach adds account permissions or bypasses device policy.
+
+Every production-edit workflow must leave the final Submit, Save, or Send to the user in the application. Do not automate equivalent API writes or use chat approval as a substitute. Check for autosave or writes triggered by field changes; if present, generate a separate preview for manual transfer. Verify this stopping boundary using fictional data or a test page as a milestone acceptance check.
+
+For workflows combining local files and web data, recommend an existing Node.js/TypeScript environment for filesystem/spreadsheet operations and Playwright for browser collection or preparation. This is a valid documented reason to use Playwright instead of an extension. Write new local output files by default rather than overwriting originals.
+
+Manual web handoff requires headed Chromium (`headless: false`). Keep the script process and context alive, pause before submission, and let the user review and personally perform the final action. `page.pause()` or an explicit terminal wait can provide the handoff. Resume must not execute a submission or equivalent API write; cleanup must wait until the user has finished. Verify on a test page that the window stays open and continuation cannot submit. If headed operation is unavailable, use a separate preview. Pausing automation does not prevent a website from autosaving.
 
 - `playwright/`: simple website-to-CSV example, useful for learning selectors.
 - `excel/`: needs a participant-created input.xlsx with name and score columns; adapt its schema for the business workflow. It does not ship a dealership workbook.
@@ -52,7 +64,7 @@ Existing starters have reported dependency audit findings. Review those before w
 
 ## When someone is stuck
 
-- Installation blocked: pair on a prepared machine and resolve installation outside the build sprint.
+- Required tooling unavailable: choose a workflow supported by existing approved tools or an approved prepared environment. Do not ask the participant to install software or bypass policy.
 - Authentication blocked: after 10 minutes, move to an approved export or fictional fixture.
 - Rules unclear: write one expected output row and one counterexample together.
 - Too much scope: return to the chosen workflow and first useful output in PROJECT.md.

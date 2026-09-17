@@ -2,6 +2,8 @@
 
 Bring three ideas. Leave with one small automation that runs.
 
+Each person builds their own workflow. The facilitator circulates to help.
+
 4½ hours of choosing, building, testing, and sharing.
 
 ---
@@ -22,10 +24,10 @@ Bring three ideas. Leave with one small automation that runs.
 | --- | --- |
 | 0:00–0:10 | How to frame an automation |
 | 0:10–0:50 | Discuss everyone's three ideas and choose one |
-| 0:50–1:15 | Break it into observable steps |
-| 1:15–2:00 | Build with sample data |
-| 2:00–2:10 | Break |
-| 2:10–3:00 | Connect a real input |
+| 0:50–1:30 | Plan PROJECT.md and review milestones |
+| 1:30–2:15 | Build with sample data, checking each milestone |
+| 2:15–2:25 | Break |
+| 2:25–3:00 | Connect a real input |
 | 3:00–3:40 | Test failures and improve reliability |
 | 3:40–4:10 | Triggers and handoff |
 | 4:10–4:30 | Participant demos |
@@ -98,6 +100,8 @@ One clear workflow and one checkable output. Use the smallest set of inputs need
 
 Before building: say your chosen workflow in one sentence and name its first useful result. Keep the other two ideas for later.
 
+Choose a distinct project of your own. We share checkpoints, not a single assignment or pace.
+
 If access is blocked, use an approved export or create a few fictional records matching your input format.
 
 ---
@@ -130,10 +134,14 @@ Make the next task a small investigation:
 
 Give the AI your workflow and [the short project template](PROJECT.template.md).
 
+**0:50–1:30 · 40 minutes to plan before coding**
+
 - Answer its questions one or two at a time.
 - Clarify the input, rules, and expected result.
 - Review the draft and correct any assumptions.
 - Save the agreed version as `PROJECT.md` before building.
+
+For each milestone, define what to build and what result you will check. Review your plan with the facilitator before starting.
 
 > Read PROJECT.md before making changes. Keep it updated when we agree to change a requirement.
 
@@ -153,23 +161,25 @@ The complete copy-paste prompt is in [prompts.md](prompts.md).
 
 ## Build sprint: first useful output
 
-**1:15–2:00 · 45 minutes**
+**1:30–2:15 · 45 minutes**
 
-Repeat: request one step, run it, inspect the output, correct it, then add the next step.
+Ask the agent to implement **one milestone only**, run it, show the result, and stop for your feedback.
 
-First print one correct result. Then save the report.
+At every milestone, check the output and record **working / blocked / needs review** in PROJECT.md.
 
-By the checkpoint, show:
+Be ready to check in as the facilitator circulates:
 
-- The command you ran
-- The input it read
-- One output row checked by hand
+- What just worked?
+- How did you check it?
+- What is the next smallest step?
+
+Continue only after you approve the result. Ask the facilitator for help if blocked or changing scope.
 
 ---
 
 ## Break
 
-**2:00–2:10 · 10 minutes**
+**2:15–2:25 · 10 minutes**
 
 Leave a note: “Working now: ___. Next obstacle: ___.”
 
@@ -177,16 +187,21 @@ Leave a note: “Working now: ___. Next obstacle: ___.”
 
 ## Connection choices
 
-**2:10–3:00 · 50 minutes**
+**2:25–3:00 · 35 minutes**
 
-| Source | Use it when |
+Machines are locked down: no new programs, organization permissions, or Microsoft 365 app registrations.
+
+| Approach | Use it when |
 | --- | --- |
-| Documented API | Access and permissions are already available |
-| CSV or Excel export | The system provides structured data |
-| Website extraction | The needed information is on an accessible page |
-| Browser interaction | Access requires navigating a user interface |
+| Chrome extension | Loading is already permitted; default for preparing production edits |
+| Local script + Playwright | Workflow combines disk files and browser data; required tools already exist |
+| Approved export or fictional data | Browser approaches are unavailable or blocked |
 
-Choose the simplest available path that meets the workflow.
+Use existing access. These approaches do not bypass IT restrictions.
+
+For spreadsheets on disk, the script handles files and Playwright handles the browser. Sign into a dedicated browser profile manually.
+
+Work on your next agreed milestone. These time blocks are checkpoints, not a requirement to advance before your current step works.
 
 ---
 
@@ -234,6 +249,12 @@ Choose one failure and make the script explain it clearly. Confirm it does not q
 - Proposed changes can be reviewed before taking effect.
 
 Email drafts and update previews are useful outputs.
+
+For production edits, prefer an extension. **You personally click the final Submit / Save / Send.** The agent never does it for you.
+
+For a local-file workflow using Playwright, keep Chromium visible and pause automation before that final action. Leave the window open for your review and manual submission.
+
+If filling a field autosaves, generate a separate preview for manual transfer instead. Any alternative to the extension needs a reason and facilitator review.
 
 ---
 

@@ -25,23 +25,61 @@ libraries. Don't invent business rules, access permissions, or available
 data. If access is uncertain, agree on an export or sample-data fallback.
 Never ask me to paste passwords or session credentials.
 
+My machine is locked down. Don't propose installing new programs,
+runtimes, or browsers, changing policy, or adding organization permissions.
+Do not require Microsoft 365 app registration or new consent grants.
+First establish what tools and extension-loading permissions already exist.
+
+For browser work, prefer a Chrome extension when permitted, or Playwright
+with an already available runtime/browser and a dedicated local profile
+I sign into manually. Never copy my existing browser session or credentials.
+For production edits, default to the extension. Document any reason for
+another approach and have me review it with the facilitator.
+
+If my workflow needs local files such as on-disk spreadsheets, recommend
+an available Node.js/TypeScript script for file operations and Playwright
+for browser collection or preparation. Use existing libraries and write
+local results to a new file by default. Record this reason for Playwright.
+For any web-edit handoff, use headless: false, stop before the final action,
+and keep the process and browser open while I review and manually submit.
+Wait for me to finish before cleanup. Resuming must never trigger submission.
+If a visible browser isn't available, produce a preview instead.
+
+I must personally perform the final Submit, Save, or Send in the application.
+Don't automate that action, make an equivalent API write, or treat my chat
+approval as permission to do it. Check whether filling fields or selecting
+options autosaves; if it does, generate a separate preview for me to transfer
+manually. Preserve these constraints in PROJECT.md and its acceptance checks.
+If neither browser approach is available, use an approved export or fictional
+data and document the blocker rather than working around restrictions.
+
 Keep asking until no unanswered question would change the first
 version's behavior, access needs, or definition of done. Record agreed
 assumptions and defer optional improvements.
 
 Then fill in the template concisely, replacing its guidance with our
-decisions. Include ordered implementation steps and how I'll run and
-verify the result. Show me the draft and ask whether it matches my intent.
+decisions. Define small, ordered milestones with an observable result
+and a check for each. Include how I'll run and verify the result.
+Preserve the template's one-milestone-at-a-time stopping instructions.
+Show me the draft and ask whether it matches my intent.
 If I correct it, revise it and resolve any new blocking questions.
 
 Once I confirm, save PROJECT.md if you can edit files; otherwise give
 me the complete Markdown to save. Stop there. Don't implement it until
-I ask you to build.
+I ask you to build. I'll review the initial plan with the facilitator first.
 ```
 
 ## First build
 
-> Read the agreed PROJECT.md and implement its first version in small steps. Use the input or fallback we agreed on. Run it and check the expected result and failure case under “Done when.” Show me the output and explain any remaining limitations.
+> My plan has been reviewed with the facilitator. Read PROJECT.md and implement only the first milestone. Use the input or fallback we agreed on. Run the relevant checks, show me the actual output, and explain what I should verify. Record the status and evidence in PROJECT.md. Stop for my feedback. Fix issues within this milestone before moving on, and do not implement later milestones until I explicitly ask you to continue.
+
+## Continue after a check-in
+
+> I've checked the result for milestone ___. It meets the agreed check. Implement only the next milestone, run its checks, show the output, and update PROJECT.md. Stop again for my review.
+
+## Correct the current milestone
+
+> Milestone ___ isn't correct yet. I expected ___, but the actual result was ___. Investigate and fix this milestone, rerun the check, and show me the result. Don't start the next milestone.
 
 ## Investigating a failure
 

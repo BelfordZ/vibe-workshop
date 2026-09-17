@@ -10,6 +10,8 @@ Say: “Today we're going to take one task you repeat and get a small automation
 
 Say: “You brought three ideas. We'll hear them from everyone, practice framing them, and choose one to build. The skill we're practicing is turning an idea into clear steps and checking a result.” Start the clock.
 
+Clarify: “Each of you will build your own distinct workflow. I'll move around the room helping you. You won't all be on the same step at the same time, but everyone will check their work at each milestone.”
+
 ## 2. Today's finish line
 
 Say: “By the end, you should be able to run a command, show a useful result, and explain why it's correct. We'll also write down the rules so you can return to this next week.”
@@ -82,7 +84,7 @@ By minute 50, have each participant write and read back their selected framing s
 
 ## 10. A workflow becomes a sequence
 
-**Decomposition block: 0:50–1:15, slides 10–13.** Use roughly 10 minutes for a participant example, 10 for writing the specification, and 5 for a peer check.
+**Planning block: 0:50–1:30, slides 10–13.** Use 10 minutes for decomposition, 20 for AI interviews and drafting, and 10 for final plan reviews. Circulate to review drafts as they become ready during the interview period so reviews don't all queue at the end.
 
 Say: “Let's take one of your workflows and break it into steps where we can see whether each one worked.”
 
@@ -104,6 +106,10 @@ Say: “Describe your workflow, give the AI the short template, and let it ask a
 
 Have participants paste or attach the template with the interview prompt from prompts.md. The AI asks one or two questions at a time, then drafts the document. Participants review and confirm it before saving PROJECT.md. Confirm they have a saved file before building.
 
+Say: “For each milestone, write down what will exist and how you'll check it. Bring me the plan before you start coding. I'll check that the first step is small, the input is accessible, and you know what a correct result looks like.”
+
+Review each participant's own workflow. Ask for a revision if the agent has bundled the whole project into one milestone. An appropriate first milestone might load a few rows and display their fields.
+
 Ask: “Does exactly 48 hours count?” Use their answer to show how a small wording choice changes the result.
 
 ## 13. A useful first prompt
@@ -116,15 +122,19 @@ Transition: “You now have enough of a specification to build the first working
 
 ## 14. Build sprint: first useful output
 
-**1:15–2:00.** Give 5 minutes of direction, 30 minutes to build, and 10 minutes to check results.
+**1:30–2:15.** Give 5 minutes of direction, 30 minutes to build with continuous milestone check-ins, and 10 minutes to capture the current result and next step.
 
 Say: “Ask for the first step, run it, inspect its output, and correct it before asking for the next. Your target is one correct result from a small input, then a saved report. At the end, show the command, the input, and one row you've checked yourself.”
+
+Have participants use the first-build prompt in prompts.md, which explicitly limits the agent to one milestone and requires it to stop. Say: “The agent showing you a result is your cue to inspect it. Record working, blocked, or needs review, with a short note about what you observed.”
+
+As you circulate, ask each person: “What just worked? How did you check it? What's the next smallest step?” Routine approval comes from the participant; they can continue after verifying the result without waiting for you. Require a facilitator check for blockers or scope changes. If the agent races ahead, have the participant stop it and return to the current milestone's check.
 
 Check in after 15 minutes. Ask “What works now?” and “What's the next observable step?” If someone is spending time on appearance, return to their acceptance example. Ask everyone to save working progress before the break.
 
 ## 15. Break
 
-**2:00–2:10.** Announce the exact return time.
+**2:15–2:25.** Announce the exact return time.
 
 Say: “Before you step away, leave yourself one sentence: what's working and what's blocking you next.”
 
@@ -132,9 +142,21 @@ Use those notes to identify people who need help or an input fallback when they 
 
 ## 16. Connection choices
 
-**Integration block: 2:10–3:00, slides 16–18.** Allow 5 minutes for direction, 35 minutes to connect inputs, and 10 minutes to check results.
+**Integration block: 2:25–3:00, slides 16–18.** Allow 5 minutes for direction, 20 minutes to connect inputs, and 10 minutes to check results.
 
-Say: “We want the simplest available way to get the data. If an approved API is ready, use it. If the system gives you an export, that may be all you need.”
+Say: “If your current milestone isn't working yet, stay with it. If it's checked, move to the next agreed milestone. Everyone is building a different workflow, so these are shared check-in times rather than a requirement to advance together.”
+
+Say: “These machines are locked down. We won't ask you to install programs or register a Microsoft 365 app. We'll first check which browser tools are already available and permitted.”
+
+Explain the two browser paths: an extension in the participant's browser, or Playwright using an already available runtime and browser with a separate local profile. The participant signs into that profile manually and completes MFA. Never copy an everyday profile, cookies, or credentials. Extension loading can also be blocked by policy, so verify it before planning the build.
+
+Say: “For preparing changes to production records, our default is an extension. You inspect the prepared result in the application and personally click Save, Submit, or Send. If we choose another approach, we need a concrete reason and a review together.”
+
+Add: “If your process reads or edits spreadsheets on disk as well as using a website, a local script plus Playwright is a sensible choice. The script and an available spreadsheet library handle the files; Playwright handles browser interaction.” Write local results to a new file by default. This requires the existing approved runtime and libraries; it does not justify installing software.
+
+For handing prepared web changes back to the user, explain: “Headed mode means you can see and interact with Chromium. We set `headless: false`, stop before submission, and leave it open while you review and click the final button yourself.” The process must stay alive and must not reach browser cleanup until the user finishes.
+
+Playwright's [`page.pause()`](https://playwright.dev/docs/api/class-page#page-pause) supports manual interaction while pausing the script, but Resume continues execution. Keep submission code out of the continuation entirely. For workshop scripts, an explicit terminal wait is another option: tell the user to review and submit in the browser, then return to the terminal only when ready to close. No automatic timeout should close the window mid-review. Pausing Playwright does not pause the website's autosave behavior.
 
 Explain that browser interaction can depend on changing page layouts and login sessions. It still requires authorized access. After 10 minutes on an access problem, help the participant switch to an export or fictional input.
 
@@ -144,7 +166,7 @@ Say: “These folders are starting points for different kinds of work. Pick the 
 
 Mention that each project has its own dependencies. Excel needs an input workbook. Outlook needs authorized mailbox access and verification against the current page. Its existing test covers CSV formatting, not live inbox extraction.
 
-The React app or extension may help when an interface is part of the workflow. A file output is sufficient for today's goal. Avoid touring every code file.
+These READMEs describe general development setup, not permission to install tools here. Select only starters supported by the existing approved environment. An extension build still needs an available build environment and a permitted way to load the output. A file output is sufficient for today's goal. Avoid touring every code file.
 
 ## 18. Real-input checkpoint
 
@@ -168,7 +190,9 @@ Say: “A useful error tells you which row or field needs attention. A useful ru
 
 Ask: “If you run this twice, what happens? Do you replace a report, append duplicate rows, or send two messages?” That question introduces idempotency without needing the terminology.
 
-Explain that retries are suitable only when repeating the operation is safe. For changes to external systems, a draft or preview gives someone a chance to review the action first.
+Explain that retries are suitable only when repeating the operation is safe. For production writes, the user's final action is mandatory, not just an optional confirmation dialog. Approval in chat does not authorize the agent to click Send or perform the equivalent API write.
+
+Ask: “Does typing into this field already save it? Does changing the dropdown update the record?” If so, even prefilling would cross the boundary. Generate a separate preview and let the user transfer the values manually. Test this behavior on fictional data or a test page, never by experimenting with production writes.
 
 ## 21. A trigger makes the script an automation
 

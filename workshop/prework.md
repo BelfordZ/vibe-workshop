@@ -9,13 +9,13 @@ Bring an approved, anonymized example of the input and a sample of the output yo
 ## Laptop readiness
 
 - Bring a charged laptop and charger.
-- Install an organization-approved Node.js LTS release, Git, Chrome, and VS Code or your chosen editor.
+- Machines are locked down. Do not install programs, runtimes, browsers, or change security settings for this workshop.
 - Sign in to your coding agent and confirm you can use it.
 - Have a GitHub account if you want to publish code. Local work is enough for the exercises.
-- Arrange IT approval for required installations ahead of time if the machine is managed.
+- Tell the facilitator which approved tools are already available and whether loading a workshop Chrome extension is permitted. We will choose a workflow that fits existing access.
 - Prepare authorized access to the chosen input, ideally a test account or approved export.
 
-In PowerShell on Windows, or Terminal on macOS, run:
+If terminal use is permitted, these commands check existing tools without installing them. Missing tools are a planning constraint, not an instruction to install:
 
 ```bash
 node --version
@@ -24,7 +24,7 @@ git --version
 node -e "console.log('Workshop ready')"
 ```
 
-Clone the workshop using HTTPS so no SSH key setup is required:
+If Git is already available and its use is permitted, obtain the repository using HTTPS:
 
 ```bash
 git clone https://github.com/BelfordZ/vibe-workshop.git
@@ -33,4 +33,6 @@ cd vibe-workshop
 
 If any setup command fails, share the command and error with the facilitator before the workshop. Do not change corporate security settings to make a command work.
 
-Install dependencies only for the starter you choose, following its README. If Outlook access is unavailable, use a file-based exercise. A coding-agent login does not grant access to your business systems.
+The facilitator will identify a usable starter within the existing environment. Some repository READMEs include installation commands for general development; those are not setup instructions for these locked-down machines. Dependency installation or extension loading must not be assumed available. If local setup is unavailable, use approved materials provided by the facilitator.
+
+We will not register Microsoft 365 applications or request new organization permissions. A Playwright workflow requires its runtime and browser to be present already and uses a dedicated local profile where you sign in manually. If neither Playwright nor extension loading is available, use an approved export or fictional data. A coding-agent login does not grant access to business systems.
