@@ -1,3 +1,4 @@
 node_modules/
 output/
+react/dist/
 .DS_Store
