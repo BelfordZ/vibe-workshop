@@ -3,4 +3,6 @@ output/
 react/dist/
 extension/dist/
 excel/output/
+outlook-playwright/.auth/
+outlook-playwright/output/
 .DS_Store
